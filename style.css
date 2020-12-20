@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: #4a4e4d;
+}
+
+.list {
+    margin: auto;
+    padding: 20px 30px;
+    background: #0e9aa7;
+    border-radius: 25px;
+    list-style-type: none;
+}
+
+.list__item {
+    margin-bottom: 5px;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.list__item:last-child {
+    margin-bottom: 0;
+}
+
+.list__link {
+    color: #f6cd61;
+    text-decoration: none;
+}
