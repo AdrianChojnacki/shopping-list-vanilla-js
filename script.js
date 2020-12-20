@@ -1,7 +1,11 @@
 function getTarget(e) {
-    return e.target;
+    if (!e) {
+        e = window.event;
+    } else {
+        return e.target || e.srcElement;
+    }
 }
-  
+
 function itemDone(e) {
     var target, elParent, elGrandparent;
 
@@ -11,11 +15,21 @@ function itemDone(e) {
 
     elGrandparent.removeChild(elParent);
     
-    e.preventDefault;
+    if (e.preventDefault) {
+        e.preventDefault();
+    } else {
+        e.returnValue = false;
+    }
 }
-  
+
 var el = document.getElementById('shoppingList');
-  
-el.addEventListener('click', function(e) {
-    itemDone(e);
-}, false);
+
+if (el.addEventListener) {
+    el.addEventListener('click', function(e) {
+        itemDone(e);
+    }, false);
+} else {
+    el.attachEvent('onclick', function(e) {
+        itemDone(e);
+    });
+}
